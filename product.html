@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - Bamboo Toothbrush Set | GreenCart</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4CAF50',
+                        secondary: '#FF9800',
+                        dark: '#1a1a1a',
+                        light: '#f8f8f8',
+                    },
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .product-thumbnail:hover {
+            border-color: #4CAF50;
+        }
+        .product-thumbnail.active {
+            border-color: #4CAF50;
+        }
+        .tab-button.active {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+        }
+    </style>
+</head>
+<body class="bg-light text-gray-800">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="index.html" class="text-2xl font-bold text-primary flex items-center">
+                    <i data-feather="shopping-bag" class="mr-2"></i>
+                    GreenCart
+                </a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="font-medium hover:text-primary">Home</a>
+                    <a href="shop.html" class="font-medium text-primary">Shop</a>
+                    <a href="about.html" class="font-medium hover:text-primary">About</a>
+                    <a href="contact.html" class="font-medium hover:text-primary">Contact</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative hidden md:block">
+                    <input type="text" placeholder="Search products..." class="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                    <i data-feather="search" class="absolute left-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="account.html" class="p-2 hover:bg-gray-100 rounded-full">
+                    <i data-feather="user"></i>
+                </a>
+                <a href="cart.html" class="p-2 hover:bg-gray-100 rounded-full relative">
+                    <i data-feather="shopping-cart"></i>
+                    <span class="absolute -top-1 -right-1 bg-secondary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden p-2 focus:outline-none">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <input type="text" placeholder="Search products..." class="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                <a href="index.html" class="font-medium hover:text-primary py-2">Home</a>
+                <a href="shop.html" class="font-medium text-primary py-2">Shop</a>
+                <a href="about.html" class="font-medium hover:text-primary py-2">About</a>
+                <a href="contact.html" class="font-medium hover:text-primary py-2">Contact</a>
+                <a href="account.html" class="font-medium hover:text-primary py-2">Account</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Header -->
+    <section class="bg-white py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center text-sm text-gray-600">
+                <a href="index.html" class="hover:text-primary">Home</a>
+                <i data-feather="chevron-right" class="w-4 h-4 mx-2"></i>
+                <a href="shop.html" class="hover:text-primary">Shop</a>
+                <i data-feather="chevron-right" class="w-4 h-4 mx-2"></i>
+                <a href="shop.html?category=home" class="hover:text-primary">Home & Living</a>
+                <i data-feather="chevron-right" class="w-4 h-4 mx-2"></i>
+                <span>Bamboo Toothbrush Set</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Product Images -->
+                <div class="md:w-1/2">
+                    <div class="bg-white rounded-lg overflow-hidden mb-4">
+                        <img id="main-image" src="http://static.photos/nature/1024x576/301" alt="Bamboo Toothbrush Set" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="grid grid-cols-4 gap-3">
+                        <button class="product-thumbnail border-2 border-transparent rounded overflow-hidden">
+                            <img src="http://static.photos/nature/200x200/301" alt="Bamboo Toothbrush Set" class="w-full h-20 object-cover" data-image="http://static.photos/nature/1024x576/301">
+                        </button>
+                        <button class="product-thumbnail border-2 border-transparent rounded overflow-hidden">
+                            <img src="http://static.photos/nature/200x200/302" alt="Bamboo Toothbrush Set" class="w-full h-20 object-cover" data-image="http://static.photos/nature/1024x576/302">
+                        </button>
+                        <button class="product-thumbnail border-2 border-transparent rounded overflow-hidden">
+                            <img src="http://static.photos/nature/200x200/303" alt="Bamboo Toothbrush Set" class="w-full h-20 object-cover" data-image="http://static.photos/nature/1024x576/303">
+                        </button>
+                        <button class="product-thumbnail border-2 border-transparent rounded overflow-hidden">
+                            <img src="http://static.photos/nature/200x200/304" alt="Bamboo Toothbrush Set" class="w-full h-20 object-cover" data-image="http://static.photos/nature/1024x576/304">
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product Info -->
+                <div class="md:w-1/2">
+                    <div class="bg-white p-6 rounded-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="bg-primary bg-opacity-10 text-primary text-xs font-bold px-2 py-1 rounded">Sustainable</span>
+                                <span class="bg-secondary bg-opacity-10 text-secondary text-xs font-bold px-2 py-1 rounded ml-2">NEW</span>
+                            </div>
+                            <button class="p-2 hover:bg-gray-100 rounded-full">
+                                <i data-feather="heart" class="text-gray-600"></i>
+                            </button>
+                        </div>
+                        <h1 class="text-3xl font-bold mb-2">Bamboo Toothbrush Set</h1>
+                        <div class="flex items-center mb-4">
+                            <div class="flex items-center mr-2">
+                                <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm">(24 reviews)</span>
+                        </div>
+                        <div class="mb-6">
+                            <span class="text-3xl font-bold">$12.99</span>
+                            <span class="text-gray-400 line-through ml-2">$15.99</span>
+                            <span class="bg-red-100 text-red-600 text-sm font-bold px-2 py-1 rounded-full ml-2">-19%</span>
+                        </div>
+                        <p class="text-gray-700 mb-6">Our premium bamboo toothbrush set is the perfect eco-friendly alternative to plastic toothbrushes. Each set includes 4 biodegradable bamboo toothbrushes with soft bristles for gentle cleaning.</p>
+                        
+                        <div class="mb-6">
+                            <h3 class="font-bold mb-2">Color:</h3>
+                            <div class="flex space-x-3">
+                                <button class="w-8 h-8 rounded-full bg-gray-200 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"></button>
+                                <button class="w-8 h-8 rounded-full bg-yellow-100 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"></button>
+                                <button class="w-8 h-8 rounded-full bg-green-100 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"></button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h3 class="font-bold mb-2">Quantity:</h3>
+                            <div class="flex items-center">
+                                <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-l">
+                                    -
+                                </button>
+                                <span class="bg-gray-100 text-gray-800 font-bold py-2 px-6">1</span>
+                                <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-r">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="bg-primary hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full flex items-center justify-center transition duration-300">
+                                <i data-feather="shopping-cart" class="mr-2"></i> Add to Cart
+                            </button>
+                            <button class="border border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-6 rounded-full flex items-center justify-center transition duration-300">
+                                <i data-feather="credit-card" class="mr-2"></i> Buy Now
+                            </button>
+                        </div>
+                        
+                        <div class="mt-6 pt-6 border-t border-gray-200">
+                            <div class="flex items-center mb-2">
+                                <i data-feather="truck" class="text-primary mr-2"></i>
+                                <span class="text-gray-700">Free shipping on orders over $50</span>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <i data-feather="refresh-cw" class="text-primary mr-2"></i>
+                                <span class="text-gray-700">30-day easy returns</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-feather="shield" class="text-primary mr-2"></i>
+                                <span class="text-gray-700">Secure payment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Tabs -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="border-b border-gray-200">
+                <nav class="flex flex-wrap -mb-px">
+                    <button class="tab-button active mr-8 py-4 px-1 font-medium text-lg border-b-2 border-transparent">
+                        Description
+                    </button>
+                    <button class="tab-button mr-8 py-4 px-1 font-medium text-lg border-b-2 border-transparent">
+                        Features
+                    </button>
+                    <button class="tab-button mr-8 py-4 px-1 font-medium text-lg border-b-2 border-transparent">
+                        Reviews (24)
+                    </button>
+                    <button class="tab-button py-4 px-1 font-medium text-lg border-b-2 border-transparent">
+                        Shipping & Returns
+                    </button>
+                </nav>
+            </div>
+            
+            <div class="py-8">
+                <div id="description-content" class="tab-content active">
+                    <h3 class="text-xl font-bold mb-4">Product Description</h3>
+                    <p class="text-gray-700 mb-6">Our bamboo toothbrush set is crafted from 100% organic, sustainably sourced bamboo. The handles are biodegradable and compostable, while the bristles are made from BPA-free nylon that can be recycled through special programs.</p>
+                    <p
+</body>
+</html>

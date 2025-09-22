@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenCart - Sustainable Shopping</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4CAF50',
+                        secondary: '#FF9800',
+                        dark: '#1a1a1a',
+                        light: '#f8f8f8',
+                    },
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-light text-gray-800">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="index.html" class="text-2xl font-bold text-primary flex items-center">
+                    <i data-feather="shopping-bag" class="mr-2"></i>
+                    GreenCart
+                </a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="font-medium hover:text-primary">Home</a>
+                    <a href="shop.html" class="font-medium hover:text-primary">Shop</a>
+                    <a href="about.html" class="font-medium hover:text-primary">About</a>
+                    <a href="contact.html" class="font-medium hover:text-primary">Contact</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative hidden md:block">
+                    <input type="text" placeholder="Search products..." class="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                    <i data-feather="search" class="absolute left-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="account.html" class="p-2 hover:bg-gray-100 rounded-full">
+                    <i data-feather="user"></i>
+                </a>
+                <a href="cart.html" class="p-2 hover:bg-gray-100 rounded-full relative">
+                    <i data-feather="shopping-cart"></i>
+                    <span class="absolute -top-1 -right-1 bg-secondary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden p-2 focus:outline-none">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <input type="text" placeholder="Search products..." class="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                <a href="index.html" class="font-medium hover:text-primary py-2">Home</a>
+                <a href="shop.html" class="font-medium hover:text-primary py-2">Shop</a>
+                <a href="about.html" class="font-medium hover:text-primary py-2">About</a>
+                <a href="contact.html" class="font-medium hover:text-primary py-2">Contact</a>
+                <a href="account.html" class="font-medium hover:text-primary py-2">Account</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="relative bg-gradient-to-r from-primary to-green-600 text-white py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Sustainable Products for a Better Tomorrow</h1>
+                <p class="text-xl mb-8">Shop our eco-friendly collection and make a difference with every purchase.</p>
+                <a href="shop.html" class="bg-secondary hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full inline-flex items-center transition duration-300">
+                    Shop Now <i data-feather="arrow-right" class="ml-2"></i>
+                </a>
+            </div>
+            <div class="md:w-1/2" data-aos="fade-left">
+                <img src="http://static.photos/nature/1024x576/42" alt="Eco-friendly products" class="rounded-lg shadow-xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Shop by Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="shop.html?category=home" class="category-card bg-gray-50 rounded-lg p-6 text-center hover:shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-primary bg-opacity-10 p-4 rounded-full inline-block mb-4">
+                        <i data-feather="home" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Home & Living</h3>
+                    <p class="text-gray-600">Eco-friendly home essentials</p>
+                </a>
+                <a href="shop.html?category=fashion" class="category-card bg-gray-50 rounded-lg p-6 text-center hover:shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-primary bg-opacity-10 p-4 rounded-full inline-block mb-4">
+                        <i data-feather="shirt" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Sustainable Fashion</h3>
+                    <p class="text-gray-600">Ethically made clothing</p>
+                </a>
+                <a href="shop.html?category=beauty" class="category-card bg-gray-50 rounded-lg p-6 text-center hover:shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-primary bg-opacity-10 p-4 rounded-full inline-block mb-4">
+                        <i data-feather="smile" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Natural Beauty</h3>
+                    <p class="text-gray-600">Chemical-free products</p>
+                </a>
+                <a href="shop.html?category=food" class="category-card bg-gray-50 rounded-lg p-6 text-center hover:shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-primary bg-opacity-10 p-4 rounded-full inline-block mb-4">
+                        <i data-feather="coffee" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Organic Food</h3>
+                    <p class="text-gray-600">Healthy and sustainable</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold" data-aos="fade-up">Featured Products</h2>
+                <a href="shop.html" class="text-primary font-medium flex items-center" data-aos="fade-up">
+                    View All <i data-feather="arrow-right" class="ml-2"></i>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="http://static.photos/nature/640x360/101" alt="Bamboo Toothbrush" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-secondary text-white text-xs font-bold px-2 py-1 rounded-full">NEW</div>
+                        <button class="absolute top-2 left-2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+                            <i data-feather="heart" class="text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Bamboo Toothbrush Set</h3>
+                                <p class="text-gray-600 text-sm">Eco-friendly oral care</p>
+                            </div>
+                            <span class="bg-primary bg-opacity-10 text-primary text-xs font-bold px-2 py-1 rounded">Sustainable</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <span class="font-bold text-lg">$12.99</span>
+                            <button class="bg-primary hover:bg-green-600 text-white py-2 px-4 rounded-full text-sm flex items-center">
+                                <i data-feather="shopping-cart" class="mr-1 w-4 h-4"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="http://static.photos/nature/640x360/102" alt="Reusable Grocery Bag" class="w-full h-64 object-cover">
+                        <button class="absolute top-2 left-2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+                            <i data-feather="heart" class="text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Organic Cotton Tote Bag</h3>
+                                <p class="text-gray-600 text-sm">Reusable grocery bag</p>
+                            </div>
+                            <span class="bg-primary bg-opacity-10 text-primary text-xs font-bold px-2 py-1 rounded">Eco</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <div>
+                                <span class="font-bold text-lg">$8.99</span>
+                                <span class="text-gray-400 text-sm line-through ml-2">$12.99</span>
+                            </div>
+                            <button class="bg-primary hover:bg-green-600 text-white py-2 px-4 rounded-full text-sm flex items-center">
+                                <i data-feather="shopping-cart" class="mr-1 w-4 h-4"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <img src="http://static.photos/nature/640x360/103" alt="Natural Soap" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-30%</div>
+                        <button class="absolute top-2 left-2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+                            <i data-feather="heart" class="text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Organic Lavender Soap</h3>
+                                <p class="text-gray-600 text-sm">Handmade natural soap</p>
+                            </div>
+                            <span class="bg-primary bg-opacity-10 text-primary text-xs font-bold px-2 py-1 rounded">Natural</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <div>
+                                <span class="font-bold text-lg">$5.99</span>
+                                <span class="text-gray-400 text-sm line-through ml-2">$8.99</span>
+                            </div>
+                            <button class="bg-primary hover:bg-green-600 text-white py-2 px-4 rounded-full text-sm flex items-center">
+                                <i data-feather="shopping-cart" class="mr-1 w-4 h-4"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative">
+                        <img src="http://static.photos/nature/640x360/104" alt="Stainless Steel Bottle" class="w-full h-64 object-cover">
+                        <button class="absolute top-2 left-2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+                            <i data-feather="heart" class="text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Stainless Steel Water Bottle</h3>
+                                <p class="text-gray-600 text-sm">BPA-free & insulated</p>
+                            </div>
+                            <span class="bg-primary bg-opacity-10 text-primary text-xs font-bold px-2 py-1 rounded">Reusable</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <span class="font-bold text-lg">$19.99</span>
+                            <button class="bg-primary hover:bg-green-600 text-white py-2 px-4 rounded-full text-sm flex items-center">
+                                <i data-feather="shopping-cart" class="mr-1 w-4 h-4"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center">
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The bamboo toothbrushes are amazing! They feel great and I love that they're compostable. Will definitely buy again."</p>
+                    <div class="flex items-center">
+                        <img src="http://static.photos/people/200x200/101" alt="Sarah J." class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <p class="text-gray-600 text-sm">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center">
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The tote bags are sturdy and stylish. I use them for groceries and get compliments all the time. Great quality!"</p>
+                    <div class="flex items-center">
+                        <img src="http://static.photos/people/200x200/102" alt="Michael T." class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Michael T.</h4>
+                            <p class="text-gray-600 text-sm">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center">
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                            <i data-feather="star" class="text-secondary w-4 h-4 fill-current"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The water bottle keeps my drinks cold for hours. Perfect for work and the gym. Plus, it looks great!"</p>
+                    <div class="flex items-center">
+                        <img src="http://static.photos/people/200x200/103" alt="Emma L." class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Emma L.</h4>
+                            <p class="text-gray-600 text-sm">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Join Our Eco Community</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Subscribe to our newsletter for exclusive offers, sustainability tips, and new product updates.</p>
+            <form class="max-w-md mx-auto flex" data-aos="fade-up" data-aos-delay="200">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-full focus:outline-none text-gray-800">
+                <button type="submit" class="bg-secondary hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-r-full transition duration-300">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <div class="flex items-center" data-aos="fade-up" data-aos-delay="100">
+                    <i data-feather="truck" class="text-primary w-8 h-8 mr-2"></i>
+                    <span class="font-medium">Free Shipping</span>
+                </div>
+                <div class="flex items-center" data-aos="fade-up" data-aos-delay="200">
+                    <i data-feather="shield" class="text-primary w-8 h-8 mr-2"></i>
+                    <span class="font-medium">Secure Payment</span>
+                </div>
+                <div class="flex items-center" data-aos="fade-up" data-aos-delay="300">
+                    <i data-feather="refresh-cw" class="text-primary w-8 h-8 mr-2"></i>
+                    <span class="font-medium">Easy Returns</span>
+                </div>
+                <div class="flex items-center" data-aos="fade-up" data-aos-delay="400">
+                    <i data-feather="leaf" class="text-primary w-8 h-8 mr-2"></i>
+                    <span class="font-medium">Carbon Neutral</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">GreenCart</h3>
+                    <p class="mb-4">Sustainable products for a better tomorrow. Join us in making a difference.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-primary"><i data-feather="facebook"></i></a>
+                        <a href="#" class="hover:text-primary"><i data-feather="twitter"></i></a>
+                        <a href="#" class="hover:text-primary"><i data-feather="instagram"></i></a>
+                        <a href="#" class="hover:text-primary"><i data-feather="youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary">All Products</a></li>
+                        <li><a href="#" class="hover:text-primary">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-primary">Best Sellers</a></li>
+                        <li><a href="#" class="hover:text-primary">Sale Items</a></li>
+                        <li><a href="#" class="hover:text-primary">Gift Cards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary">FAQs</a></li>
+                        <li><a href="#" class="hover:text-primary">Shipping & Returns</a></li>
+                        <li><a href="#" class="hover:text-primary">Size Guide</a></li>
+                        <li><a href="#" class="hover:text-primary">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">About Us</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary">Our Story</a></li>
+                        <li><a href="#" class="hover:text-primary">Sustainability</a></li>
+                        <li><a href="#" class="hover:text-primary">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary">Careers</a></li>
+                        <li><a href="#" class="hover:text-primary">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2023 GreenCart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+    </script>
+</body>
+</html>
